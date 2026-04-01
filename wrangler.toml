@@ -1,0 +1,41 @@
+name = "cf-ai-neel"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Serve built React frontend as static assets
+[assets]
+directory = "./frontend/dist"
+# Run worker only for /api/* paths; serve static assets directly otherwise
+run_worker_first = ["/api/*"]
+
+# Workers AI binding
+[ai]
+binding = "AI"
+
+# Cloudflare Workflows
+[[workflows]]
+binding = "RESEARCH_WORKFLOW"
+name = "research-workflow"
+class_name = "ResearchWorkflow"
+
+# Durable Objects
+[[durable_objects.bindings]]
+name = "CHAT_SESSION"
+class_name = "ChatSession"
+
+# Durable Object migrations (SQLite storage)
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ChatSession"]
+
+# D1 Database — run: wrangler d1 create scout-db, then paste the database_id below
+[[d1_databases]]
+binding = "DB"
+database_name = "scout-db"
+database_id = "d18a8e5c-ecb0-44f1-b765-5115ab8cfabb"
+
+# Workers KV — run: wrangler kv namespace create PREFERENCES, then paste the id below
+[[kv_namespaces]]
+binding = "PREFERENCES"
+id = "3743af3f7a13422e93a68dfa4ab8a2fc"

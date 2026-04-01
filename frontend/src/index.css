@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(107, 114, 128, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(107, 114, 128, 0.7);
+}
+
+/* Smooth scrolling */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Prose overrides for dark mode */
+.dark .prose {
+  color: rgb(209, 213, 219);
+}
+
+.dark .prose strong {
+  color: rgb(243, 244, 246);
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4 {
+  color: rgb(243, 244, 246);
+}
+
+.dark .prose code {
+  color: rgb(147, 197, 253);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dark .prose pre {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.dark .prose blockquote {
+  border-color: rgb(75, 85, 99);
+  color: rgb(156, 163, 175);
+}
+
+.dark .prose hr {
+  border-color: rgb(55, 65, 81);
+}
+
+.dark .prose a {
+  color: rgb(56, 189, 248);
+}
+
+.dark .prose ul > li::marker,
+.dark .prose ol > li::marker {
+  color: rgb(107, 114, 128);
+}
+
+/* Textarea */
+textarea {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(107, 114, 128, 0.4) transparent;
+}

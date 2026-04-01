@@ -1,0 +1,21 @@
+{
+  "name": "cf-ai-neel",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "cd frontend && npm run build && cd .. && wrangler deploy",
+    "build:frontend": "cd frontend && npm run build",
+    "db:migrate:local": "wrangler d1 execute scout-db --local --file=./schema.sql",
+    "db:migrate:remote": "wrangler d1 execute scout-db --remote --file=./schema.sql",
+    "cf-typegen": "wrangler types"
+  },
+  "dependencies": {
+    "hono": "^4.7.7"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250327.0",
+    "typescript": "^5.8.3",
+    "wrangler": "^4.10.0"
+  }
+}
